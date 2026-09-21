@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>SevaSetu — All the Tools You Need, In One Place</title>
+  <meta name="description" content="SevaSetu is a curated tools directory for your spiritual community. Download apps for Windows, Mac, Android — or use web tools — all in one place.">
+  <meta name="keywords" content="SevaSetu, tools, download, spiritual, productivity, utilities, apps">
+  <meta name="theme-color" content="#0d0d1a">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SevaSetu — Tools Directory">
+  <meta property="og:description" content="Curated tools & apps for your community. Download for Windows, Mac, Android.">
+  <meta property="og:type" content="website">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Favicon (emoji-based inline SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔗</text></svg>">
+</head>
+<body>
+
+  <!-- ─── Navbar ─── -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="#" class="navbar-brand">
+        <div class="navbar-logo">🔗</div>
+        <div>
+          <div class="navbar-title">SevaSetu</div>
+          <div class="navbar-subtitle">Tools Directory</div>
+        </div>
+      </a>
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          class="search-input"
+          id="search-input"
+          placeholder="Search tools..."
+          autocomplete="off"
+        >
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── Hero ─── -->
+  <section class="hero" id="hero">
+    <h1 class="hero-title">
+      All the tools you need,<br>
+      <span class="gradient-text">in one place.</span>
+    </h1>
+    <p class="hero-subtitle">
+      Curated apps & tools for our community. Download for Windows, Mac, Android — or use directly on the web.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number" id="stat-total">0</div>
+        <div class="stat-label">Total Tools</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" id="stat-own">0</div>
+        <div class="stat-label">Our Apps</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" id="stat-categories">0</div>
+        <div class="stat-label">Categories</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Category Filters ─── -->
+  <section class="filters-section">
+    <div class="category-filters" id="category-filters">
+      <!-- Rendered by JS -->
+    </div>
+  </section>
+
+  <!-- ─── Tools Grid ─── -->
+  <section class="tools-section">
+    <div class="tools-grid" id="tools-grid">
+      <!-- Rendered by JS -->
+    </div>
+  </section>
+
+  <!-- ─── Footer ─── -->
+  <footer class="footer">
+    Made with <span class="footer-heart">♥</span> for the community &nbsp;·&nbsp; SevaSetu
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/tools-data.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
