@@ -33,15 +33,53 @@
           <div class="navbar-subtitle">Tools Directory</div>
         </div>
       </a>
-      <div class="search-wrapper">
-        <span class="search-icon">🔍</span>
-        <input
-          type="text"
-          class="search-input"
-          id="search-input"
-          placeholder="Search tools..."
-          autocomplete="off"
-        >
+      <div class="nav-actions">
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            class="search-input"
+            id="search-input"
+            placeholder="Search tools..."
+            autocomplete="off"
+          >
+        </div>
+        <div class="theme-menu-container">
+          <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Switch Theme" title="Switch Theme">
+            <span id="theme-icon">🌙</span>
+            <span class="theme-label" id="theme-label">Twilight</span>
+            <span class="theme-chevron">▾</span>
+          </button>
+          <div class="theme-dropdown" id="theme-dropdown">
+            <div class="theme-group-label">Heritage Presets</div>
+            <button class="theme-opt" data-theme-id="twilight">
+              <span class="opt-indicator"></span>
+              <span class="opt-swatch" style="background:#e5b869;"></span>
+              <span>Twilight Gold (Dark)</span>
+            </button>
+            <button class="theme-opt" data-theme-id="alabaster">
+              <span class="opt-indicator"></span>
+              <span class="opt-swatch" style="background:#b47818;"></span>
+              <span>Alabaster Ivory (Light)</span>
+            </button>
+            <div class="theme-group-label">Community Favorites</div>
+            <button class="theme-opt" data-theme-id="catppuccin-mocha">
+              <span class="opt-indicator"></span>
+              <span class="opt-swatch" style="background:#cba6f7;"></span>
+              <span>Catppuccin Mocha</span>
+            </button>
+            <button class="theme-opt" data-theme-id="catppuccin-latte">
+              <span class="opt-indicator"></span>
+              <span class="opt-swatch" style="background:#8839ef;"></span>
+              <span>Catppuccin Latte</span>
+            </button>
+            <button class="theme-opt" data-theme-id="tokyo-night">
+              <span class="opt-indicator"></span>
+              <span class="opt-swatch" style="background:#7aa2f7;"></span>
+              <span>Tokyo Night</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </nav>

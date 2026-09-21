@@ -225,6 +225,99 @@
         searchEl.focus();
       }
     });
+
+    // Theme Switcher Bindings
+    bindThemeSwitcher();
+  }
+
+  // ── Theme Manager ──
+  const THEME_CONFIG = {
+    'twilight':         { label: 'Twilight', icon: '🌙' },
+    'alabaster':        { label: 'Alabaster', icon: '☀️' },
+    'catppuccin-mocha': { label: 'Catppuccin Mocha', icon: '☕' },
+    'catppuccin-latte': { label: 'Catppuccin Latte', icon: '🥛' },
+    'tokyo-night':      { label: 'Tokyo Night', icon: '🌃' },
+  };
+
+  function applyTheme(themeId, save = true) {
+    if (!THEME_CONFIG[themeId]) themeId = 'twilight';
+    document.documentElement.setAttribute('data-theme', themeId);
+
+    const btnIcon = document.getElementById('theme-icon');
+    const btnLabel = document.getElementById('theme-label');
+    if (btnIcon && btnLabel) {
+      btnIcon.textContent = THEME_CONFIG[themeId].icon;
+      btnLabel.textContent = THEME_CONFIG[themeId].label;
+    }
+
+    // Update active highlight in dropdown
+    const opts = document.querySelectorAll('.theme-opt');
+    opts.forEach(opt => {
+      if (opt.dataset.themeId === themeId) {
+        opt.classList.add('active');
+      } else {
+        opt.classList.remove('active');
+      }
+    });
+
+    if (save) {
+      try {
+        localStorage.setItem('sevasetu-theme', themeId);
+      } catch (err) {
+        /* ignore storage access restrictions */
+      }
+    }
+  }
+
+  function bindThemeSwitcher() {
+    const menuContainer = document.querySelector('.theme-menu-container');
+    const toggleBtn = document.getElementById('theme-toggle-btn');
+    const dropdown = document.getElementById('theme-dropdown');
+
+    if (!toggleBtn || !menuContainer) return;
+
+    // Load saved or system preferred theme
+    let initialTheme = 'twilight';
+    try {
+      const saved = localStorage.getItem('sevasetu-theme');
+      if (saved && THEME_CONFIG[saved]) {
+        initialTheme = saved;
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        initialTheme = 'alabaster';
+      }
+    } catch (e) {}
+
+    applyTheme(initialTheme, false);
+
+    // Toggle menu
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuContainer.classList.toggle('open');
+    });
+
+    // Option clicks
+    if (dropdown) {
+      dropdown.addEventListener('click', (e) => {
+        const opt = e.target.closest('.theme-opt');
+        if (!opt) return;
+        const selectedTheme = opt.dataset.themeId;
+        applyTheme(selectedTheme, true);
+        menuContainer.classList.remove('open');
+      });
+    }
+
+    // Close on outside click or escape
+    document.addEventListener('click', (e) => {
+      if (!menuContainer.contains(e.target)) {
+        menuContainer.classList.remove('open');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuContainer.classList.contains('open')) {
+        menuContainer.classList.remove('open');
+      }
+    });
   }
 
   // ── Boot ──
