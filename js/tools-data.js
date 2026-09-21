@@ -41,9 +41,9 @@ const TOOLS = [
     type: 'own',
     icon: '🎵',
     platforms: {
-      web: 'https://github.com/yusakukudo/audio2tube',
+      web: 'https://audio2tube.vercel.app/',
     },
-    website: 'https://github.com/yusakukudo/audio2tube',
+    website: 'https://audio2tube.vercel.app/',
     tags: ['audio', 'youtube', 'upload', 'converter', 'video'],
     featured: true,
   },
