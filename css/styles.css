@@ -842,15 +842,28 @@ body::before {
 .website-link {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   color: var(--text-muted);
   font-size: 0.78rem;
+  font-weight: 500;
   text-decoration: none;
-  transition: color 0.2s;
+  padding: 3px 6px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
 }
 
 .website-link:hover {
   color: var(--gold);
+  background: var(--bg-input);
+}
+
+.github-link {
+  color: var(--text-secondary);
+}
+
+.github-link:hover {
+  color: var(--gold);
+  border-color: var(--border-glass);
 }
 
 /* ── Empty State ── */

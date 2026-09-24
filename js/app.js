@@ -129,13 +129,19 @@
       })
       .join('');
 
-    // Website link
-    const websiteLink = tool.website
-      ? `<a href="${tool.website}" target="_blank" rel="noopener noreferrer"
-            class="website-link" id="link-${tool.id}" title="Visit website">
-           ↗ Website
-         </a>`
-      : '';
+    // External link (GitHub or Website)
+    let externalLink = '';
+    if (tool.website) {
+      const isGitHub = /github\.com/i.test(tool.website);
+      const linkLabel = isGitHub ? 'GitHub' : 'Website';
+      const linkTitle = isGitHub ? 'View on GitHub' : 'Visit website';
+      const linkIcon = isGitHub ? '🐙' : '↗';
+      externalLink = `
+        <a href="${tool.website}" target="_blank" rel="noopener noreferrer"
+           class="website-link ${isGitHub ? 'github-link' : ''}" id="link-${tool.id}" title="${linkTitle}">
+          ${linkIcon} ${linkLabel}
+        </a>`;
+    }
 
     return `
       <article class="tool-card ${isOwn ? 'own-app' : ''}"
@@ -154,7 +160,7 @@
         <p class="card-description">${tool.description}</p>
         <div class="card-footer">
           <div class="platform-buttons">${platformBtns}</div>
-          ${websiteLink}
+          ${externalLink}
         </div>
       </article>
     `;
